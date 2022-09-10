@@ -1,6 +1,6 @@
 "https://www.{default}/":
     type: upstream
-    upstream: "lnclassapp:http"
+    upstream: "lnchatapp:http"
 
 "https://{default}/":
     type: redirect

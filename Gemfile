@@ -32,7 +32,7 @@ gem "stimulus-rails"
 
 
 ####################   MEMBERSHIPS   ###############
-#gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'devise', '~> 4.8', '>= 4.8.1'
 #gem 'devise_invitable', '~> 2.0', '>= 2.0.6'
 #gem 'devise-i18n', '~> 1.10', '>= 1.10.2'
 

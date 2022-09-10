@@ -2,13 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
 
 @layer components {
-  .btn-primary {
+  /* Button*/
+  .ln-btn-color {
+    @apply bg-blue-600 py-1 px-2 rounded-full;
+  }
+  /* link hover color */
+  .ln-btn-hover-color {
+    @apply hover:bg-blue-500;
+  }
+  
+  /*Logo decor */
+  .ln-logo-decor {
+    @apply underline decoration-sky-500 decoration-dashed;
+  }
+  /* Form sign in */
+  .ln-signIn-form {
+    @apply pl-11 text-gray-800 pr-11 py-2 border-gray-600 rounded-md focus:border-gray-400 focus:ringfocus:ring-gray-800 ring-gray-400 ring focus:ring-offset-2 focus:ring-offset-white dark:border-gray-600 dark:bg-primary-darker dark:focus:ring-offset-dark-eval-1 block w-full;
+  }
+  .ln-select {
+    @apply block w-full select rounded-none;
+  }
+  .ln-field {
+    @apply mt-1 block w-full;
+  }
+  .ln-sidebar-item {
+    @apply flex items-center text-white hover:text-blue-500 px-4 py-2 mt-2 text-xl font-bold;
+  }
+  .ln-sidebar-text {
+    @apply ml-2 text-white;
+  }
+  .ln-btn-p {
     @apply py-2 px-4 bg-blue-200;
   }
-}
+  .ln-sidebar-link {
+    @apply px-3 py-2 mt-2 text-lg font-medium rounded-sm;
+  }
+  .flash-card {
+    @apply my-20;
+  }
+  
+  .ln-button {
+    @apply bg-blue-600 text-white font-bold p-3 px-6 rounded-full mt-2;
+  }
+  .ln-radio {
+    @apply text-white;
+  }
 
-*/
+  /* notice  */
+  
+  .msg-notice {
+  @apply bg-green-300 text-green-900;
+  }
+  .msg-alert {
+    @apply bg-red-300 text-red-900;
+  }
+}
 @import 'actiontext.css';

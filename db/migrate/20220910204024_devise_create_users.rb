@@ -40,6 +40,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string "city_name"
       t.string "media_name"
       t.string "level_name"
+      t.string "school_name"
+      t.string "doublant"
       t.string "material_name"
       t.string "user_role", null: false
       t.string "user_class_status"

@@ -1,0 +1,25 @@
+<%= form_with(model: @user_echange, url: [@course, user_echange], class: "contents") do |f| %>
+  <% if user_echange.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(user_echange.errors.count, "error") %> prohibited this user_echange from being saved:</h2>
+
+      <ul>
+        <% user_echange.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= f.text_field :title, placeholder:"Posez votre question avec comment ...", class: "ln-field rounded-md" %>
+  </div>
+
+  
+
+  
+
+  <div class="inline">
+    <%= f.submit "Envoi", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

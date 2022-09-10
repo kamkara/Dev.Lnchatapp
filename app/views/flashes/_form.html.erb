@@ -1,0 +1,28 @@
+<%= form_with(model: @flash, url: [@course, flash], class: "contents") do |f| %>
+  <% if flash.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(flash.errors.count, "error") %> prohibited this flash from being saved:</h2>
+
+      <ul>
+        <% flash.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= f.text_field :title, placeholder:"Titre du flash ...", class: "ln-field rounded-md" %>
+  </div>
+
+  <div class="my-5 bg-white p-2 rounded-md">
+    <%= f.label :contenu %>
+    <%= f.rich_text_area :content,
+     class: "block  rounded-md outline-none px-3 py-2 mt-2 w-full",
+    placeholder:"le contenu du flash ..." %>
+  </div>
+
+  <div class="inline">
+    <%= f.submit "Créer un Flash", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

@@ -1,9 +1,31 @@
 Rails.application.routes.draw do
+
+  
+  #resources :flash_cards
+  resources :user_echanges, except: [:create, :new]
+  resources :flashes, except: [:create, :index, :new]
+  
+  
+  #Course items
+  resources :courses, shallow: true do
+    resources :flashes, only: [:create, :index, :new]
+    resources :user_echanges, only: [:create, :new]
+  end
+  #resources :flash_cards, except:[:index, :show] do
+    # resources :line_items, except: [:index, :show]
+  #end
+
+  resources :courses
   resources :citytowns
   resources :schools
   resources :materials
   resources :levels
-  
+
+  #Courses
+  get "courses-show", to:"courses#show"
+  get "feed", to:"courses#index"
+  get "lesson", to:"courses#new"
+
   #Membership
   get "teacher-sign-up" , to:'membership#teacherUp'
   get "teacher-sign-in" , to:'membership#teacherIn'
@@ -15,6 +37,10 @@ Rails.application.routes.draw do
   #Dashboard
   get "dashboard", to:'dashboard#index'
   get "setting", to:'dashboard#home'
+  get "new-materials", to:"materials#new"
+  get "new-levels", to:"levels#new"
+  get "new-city", to:"citytowns#new"
+  get "new-school", to:"schools#new"
 
   #Membership 
   devise_scope :user do

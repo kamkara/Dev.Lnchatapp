@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :citytowns
+  resources :schools
+  resources :materials
+  resources :levels
   
   #Membership
   get "teacher-sign-up" , to:'membership#teacherUp'

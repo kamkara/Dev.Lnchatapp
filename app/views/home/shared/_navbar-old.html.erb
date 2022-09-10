@@ -1,0 +1,25 @@
+<div class="hidden md:flex md:justify-center md:flex-col md:w-1/3 px-3  border">
+	<div class="font-bold -mt-20">
+		<%= link_to root_path do %>
+		    <span class="text-xl">LNCLASS </span> <span> for students</span> 
+		<% end %>
+	</div>
+	<%= link_to 'Dashboard', dashboard_path, class:"ln-sidebar-link" %>
+	<%= link_to 'Accueil', root_path, class:" ln-sidebar-link" %>
+	<%= link_to 'Décourir', root_path, class:"ln-sidebar-link" %>
+	<%#= link_to 'Groupes', root_path, class:"ln-sidebar-link" %>
+	<%= link_to 'Messages', root_path, class:"ln-sidebar-link" %>
+	<%= link_to 'Déconnexion', root_path, class:"ln-sidebar-link" %>
+	<a class="ln-sidebar-link" href="#">Profil</a>
+	<a class="flex px-3 py-2 mt-2 text-lg rounded-sm font-medium " href="#">
+        <span class="flex-shrink-0 w-10 h-10 bg-gray-400 rounded-full"></span>
+        <div class="flex flex-col ml-2">
+            <span class="mt-1 text-sm font-semibold leading-none"><%= current_user.last_name %></span>
+        </div>
+	</a>
+	<div class="font-bold">
+		<p class="">Besoin d'aide . <span>Blog</span> . <span>A propos</span> . </p>
+		<p class=""><span>Mentions légales</span> . <span>CGU</span>.</p>
+		<p class=""><span class="">Confidentialité</span> . <span class="">Gagner Argent</span></p>
+	</div>
+</div>

@@ -32,4 +32,52 @@ module ApplicationHelper
     def tileColor
       "#020408"
     end
+
+
+    #Enable sign In And Up anywhere
+    #Sign in and up anywhere on app
+    def resource_name
+        :user
+    end
+    def resource
+        @resource ||= User.new
+    end
+    
+    def resource_class
+        User
+    end
+    
+    def devise_mapping
+        @devise_mapping ||= Devise.mappings[:user]
+    end
+
+    
+    #FLASH NOTICE
+    def tailwind_class_for_flash(flash_type)
+      case flash_type
+      when 'success'
+        'alert-success'
+      when 'error'
+        'alert-danger'
+      when 'alert'
+        'alert-warning'
+      when 'notice'
+        'alert-info'
+      else
+        flash_type.to_s
+      end
+    end
+
+    #Add User Flash
+    def user_flash
+        render "shared/flash/user_flash"
+    end
+    #form error notification 
+    def form_error_notification(object)
+      if object.errors.any?
+        tag.div class: "error-message" do
+          object.errors.full_messages.to_sentence.capitalize
+        end
+      end
+    end
 end

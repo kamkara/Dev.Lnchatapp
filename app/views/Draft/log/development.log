@@ -1,0 +1,97 @@
+Started GET "/" for ::1 at 2022-09-06 15:06:47 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (27.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomepageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/shared/_navbar.html.erb (Duration: 28.9ms | Allocations: 614)
+  Rendered homepage/shared/_hero.html.erb (Duration: 1.8ms | Allocations: 211)
+  Rendered homepage/shared/_essential.html.erb (Duration: 1.5ms | Allocations: 248)
+  Rendered homepage/shared/_flashCard.html.erb (Duration: 1.0ms | Allocations: 150)
+  Rendered homepage/shared/_exercise.html.erb (Duration: 1.2ms | Allocations: 152)
+  Rendered homepage/shared/_pricing.html.erb (Duration: 1.3ms | Allocations: 288)
+  Rendered homepage/shared/_testimonial.html.erb (Duration: 1.0ms | Allocations: 165)
+  Rendered homepage/shared/_programs.html.erb (Duration: 1.3ms | Allocations: 138)
+  Rendered homepage/index.html.erb within layouts/application (Duration: 53.1ms | Allocations: 3696)
+  Rendered shared/analytics/_analytics.html.erb (Duration: 1.0ms | Allocations: 122)
+Started GET "/" for ::1 at 2022-09-06 15:06:50 +0000
+Processing by HomepageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 181)
+  Rendered homepage/shared/_hero.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered homepage/shared/_essential.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered homepage/shared/_flashCard.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered homepage/shared/_exercise.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered homepage/shared/_pricing.html.erb (Duration: 0.4ms | Allocations: 25)
+  Rendered homepage/shared/_testimonial.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered homepage/shared/_programs.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered homepage/index.html.erb within layouts/application (Duration: 54.5ms | Allocations: 9158)
+  Rendered shared/analytics/_analytics.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layouts/HomePageStyles/_normalize.html.erb (Duration: 5.4ms | Allocations: 360)
+  Rendered layouts/HomePageStyles/_normalize.html.erb (Duration: 0.8ms | Allocations: 82)
+  Rendered layout layouts/application.html.erb (Duration: 3250.5ms | Allocations: 229730)
+Completed 200 OK in 4663ms (Views: 3374.3ms | ActiveRecord: 0.0ms | Allocations: 240910)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 3072.5ms | Allocations: 222412)
+Completed 200 OK in 3086ms (Views: 3074.1ms | ActiveRecord: 0.0ms | Allocations: 223220)
+
+
+Started GET "/" for ::1 at 2022-09-06 15:06:56 +0000
+Processing by HomepageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 181)
+  Rendered homepage/shared/_hero.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_essential.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_flashCard.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_exercise.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_pricing.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_testimonial.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_programs.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 819)
+  Rendered shared/analytics/_analytics.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered layouts/HomePageStyles/_normalize.html.erb (Duration: 0.2ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 42.4ms | Allocations: 9806)
+Completed 200 OK in 46ms (Views: 43.4ms | ActiveRecord: 0.0ms | Allocations: 10560)
+
+
+Started GET "/" for ::1 at 2022-09-07 15:32:54 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (49.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomepageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/shared/_navbar.html.erb (Duration: 2.9ms | Allocations: 614)
+  Rendered homepage/shared/_hero.html.erb (Duration: 3.0ms | Allocations: 211)
+  Rendered homepage/shared/_essential.html.erb (Duration: 1.8ms | Allocations: 248)
+  Rendered homepage/shared/_flashCard.html.erb (Duration: 1.0ms | Allocations: 150)
+  Rendered homepage/shared/_exercise.html.erb (Duration: 1.0ms | Allocations: 152)
+  Rendered homepage/shared/_pricing.html.erb (Duration: 9.1ms | Allocations: 288)
+  Rendered homepage/shared/_testimonial.html.erb (Duration: 1.0ms | Allocations: 165)
+  Rendered homepage/shared/_programs.html.erb (Duration: 0.9ms | Allocations: 138)
+  Rendered homepage/index.html.erb within layouts/application (Duration: 42.1ms | Allocations: 3587)
+  Rendered shared/analytics/_analytics.html.erb (Duration: 2.4ms | Allocations: 122)
+  Rendered layouts/HomePageStyles/_normalize.html.erb (Duration: 3.3ms | Allocations: 119)
+  Rendered layout layouts/application.html.erb (Duration: 1738.7ms | Allocations: 63659)
+Completed 200 OK in 2011ms (Views: 1771.3ms | ActiveRecord: 0.0ms | Allocations: 72701)
+
+
+Started GET "/" for ::1 at 2022-09-07 15:32:59 +0000
+Processing by HomepageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 204)
+  Rendered homepage/shared/_hero.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_essential.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_flashCard.html.erb (Duration: 1.9ms | Allocations: 15)
+  Rendered homepage/shared/_exercise.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_pricing.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_testimonial.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/shared/_programs.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered homepage/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 842)
+  Rendered shared/analytics/_analytics.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered layouts/HomePageStyles/_normalize.html.erb (Duration: 0.3ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 49.3ms | Allocations: 9842)
+Completed 200 OK in 54ms (Views: 51.4ms | ActiveRecord: 0.0ms | Allocations: 10693)
+
+

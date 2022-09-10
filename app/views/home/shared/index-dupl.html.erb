@@ -1,0 +1,36 @@
+<!-- component -->
+<% @title="Fil Leçon" %>
+
+
+    <!-- component -->
+<!-- Component Start -->
+<div class="flex justify-center w-screen h-screen ">
+	<div class="flex w-full max-w-screen-lg text-white">
+		
+    <!-- Navbar -->
+    <%= render partial: "home/shared/navbar" %>
+		<div class="flex flex-col flex-grow border-l border-r border-gray-300 md:w-2/3 md:-ml-20">
+			
+      <!-- Top bar Title -->
+      <div class="flex justify-between flex-shrink-0 px-8 py-4 border-b border-gray-300">
+				<h1 class="text-xl font-semibold">Lnclass Education</h1>
+				<button class="flex items-center text-sm text-white font-bold p-2 rounded-md bg-blue-500 hover:bg-blue-400">Créer Exercice</button>
+			</div>
+
+      <!-- Top bar  Message-->
+			<div class="flex-grow h-0 overflow-auto">
+				<div class="flex w-full p-8 border-b-4 border-gray-300">
+					
+          <%= render "home/shared/messenger" %>
+				</div>
+        <!-- Feed Course-->
+          <%= render "home/shared/feed" %>
+
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- Component End  -->
+
+

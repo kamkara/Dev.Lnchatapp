@@ -13,7 +13,8 @@ class User < ApplicationRecord
   has_many :courses, class_name: "Course", foreign_key: "user_id"
   has_many :flashes
   has_many :flash_cards
-  has_many :user_echanges, class_name: "User_echange", foreign_key: "user_id"
+  has_many :user_echanges#, class_name: "User_echange", foreign_key: "user_id"
+  
             
   attr_writer :logged
   #enum :role, student: "student", teacher: "teacher", team: "team", default: "student"

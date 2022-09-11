@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_course, only: %i[ create new]
-  before_action :set_question, only: %i[ show edit update destroy ]
+  before_action :set_course#, only: %i[ create new]
+  before_action :set_question, only: %i[ edit update destroy ]
 
   # GET /questions or /questions.json
   def index
@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1 or /questions/1.json
   def show
+    
   end
 
   # GET /questions/new
@@ -62,7 +63,7 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.friendly.find(params[:id])
+      @question = Course.question.friendly.find(params[:id])
     end
 
     #Set course

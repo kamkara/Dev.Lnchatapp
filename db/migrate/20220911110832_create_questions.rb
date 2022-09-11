@@ -8,5 +8,10 @@ class CreateQuestions < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+     # Adding uniqueness constraint for the couple title and course_id
+    add_index :questions, [:title, :course_id], unique: true
+    # Adding index to the title field for performance reasons
+    add_index :questions, :title
   end
 end

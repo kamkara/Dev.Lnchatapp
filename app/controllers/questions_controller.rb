@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_course
   before_action :set_question, only: %i[ show edit update destroy ]
 
   # GET /questions or /questions.json
@@ -12,7 +14,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @question = Question.new
+    @question = @course.questions.build
   end
 
   # GET /questions/1/edit
@@ -21,11 +23,11 @@ class QuestionsController < ApplicationController
 
   # POST /questions or /questions.json
   def create
-    @question = Question.new(question_params)
-
+    @question = @course.questions.build(question_params)
+    @question.user_id = current_user.id
     respond_to do |format|
       if @question.save
-        format.html { redirect_to question_url(@question), notice: "Question was successfully created." }
+        format.html { redirect_to feed_path, notice: "Question was successfully created." }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,7 +62,12 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params[:id])
+      @question = Question.friendly.find(params[:id])
+    end
+
+    #Set course
+    def set_course
+      @course = Course.friendly.find(params[:course_id])
     end
 
     # Only allow a list of trusted parameters through.

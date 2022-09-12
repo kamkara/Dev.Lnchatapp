@@ -1,47 +1,29 @@
-<div id="<%= dom_id course %>" class="container mx-auto borber rounded-md text-white">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= course.title %>
-  </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Content:</strong>
-    <%= course.content %>
-  </p>
+<div id="<%= dom_id course %>" class="w-full flex border-b p-2 border-gray-300">
+        <div class="flex flex-col ">
+	        <div class="flex justify-between ">
+			<div class="flex-none  "></div>
+				<div class="flex-initial  ">
+					<p class="font-bold text-xl "><%= course.material_name %></p>	
+				</div>	
+				
+			</div>
+			<div class="mt-4">
+				<span class="font-bold text-xl"><%= course.title %></span>
+			</div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Level name:</strong>
-    <%= course.level_name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Material name:</strong>
-    <%= course.material_name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Status:</strong>
-    <%= course.status %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Published:</strong>
-    <%= course.published %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= course.slug %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= course.user_id %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this course", course, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this course', edit_course_path(course), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+			<div class="mt-1">
+				<%= truncate(strip_tags(course.content.to_s.html_safe), length: 400) %> 
+				<span class="ln-btn-color ln-btn-hover-color ">Voir plus</span>
+			</div>
+            
+      <!-- Bottom items of course -->
+      <div class="border-t mt-2">
+	      <div class="flex justify-between my-1">
+          <%= render "courses/shared/feed/feed_essentials", course: course %>
+          <%= render "courses/shared/feed/feed_exercices", course: course %>
+          <%= render "courses/shared/feed/feed_questions", course: course %>
+        </div>
+      </div>
+		</div> 
+	</div>

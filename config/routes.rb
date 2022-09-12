@@ -1,30 +1,31 @@
 Rails.application.routes.draw do
   #resources :flash_cards
-  resources :questions, except: [:create, :new]
-  resources :flashes, except: [:create, :index, :new]
-  resources :anwsers, except: [:create, :new]
-  
   
   
   #Course items
   resources :courses, shallow: true do
     resources :flashes, only: [:create, :index, :new]
-    resources :questions, only: [:create, :new]
+    resources :questions, except: [:index , :show ] do
+      #Questions And Anwser
+      resources :anwsers, except: [:index, :show]
+    end
   end
-
-  #Questions And Anwser
-  resources :questions, shallow: true do
-    resources :anwsers, only: [:create, :new]
-  end
+  
   #resources :flash_cards, except:[:index, :show] do
-    # resources :line_items, except: [:index, :show]
+  # resources :line_items, except: [:index, :show]
   #end
+  
 
-  resources :courses
-  resources :citytowns
-  resources :schools
-  resources :materials
-  resources :levels
+  resources :courses,
+            :materials,
+            :levels,
+            :citytowns,
+            :schools
+
+  resources :questions, except: [:create, :new]
+  resources :flashes, except: [:create, :index, :new]
+  resources :anwsers, except: [:create, :new]
+  
 
   #Courses
   get "courses-show", to:"courses#show"

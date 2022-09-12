@@ -4,38 +4,25 @@
 	<div class="flex justify-between md:max-w-4xl">
 		<div class="max-w-screen flex max-h-screen">
 			<!-- SideBar -->
-			<div class="hidden md:block md:w-1/3 border-x border-x-white md:justify-center ">
-				<div class="md:w-full overflow-x-auto max-h-72 p-2 py-10">
-					<div class="">
-						<h1 class=" text-white font-bold font-bold text-4xl">
-							<span class="">Ln<span class="ln-logo-decor">class</span></span>
-							<span class="text-xl">for student</span>
-						</h1>
-					</div>
-					<!-- Sidebar Items -->
-					<%= render "courses/shared/sidebar_items" %>
-				</div>
-				<div class="md:w-full ">
-					<hr>
-					<!-- Egal  -->
-					<%= render "courses/shared/legal" %>
-				</div>
-			</div>
+			<%= render "courses/shared/sidebar/sidebar_items" %>
 			<!-- Feed -->
 			<div class="w-full md:w-2/3 overflow-x-auto">
-				<!-- Feed title -->
-				<div class=" flex flex-col border">
-					<div class="flex justify-center">
-						<h1 class="font-bold text-xl">Ln<span class="ln-logo-decor">class</span> éducation</h1> 
-						 <br>
-						 <%= render "shared/flash/user_flash" %>
-					</div>
-				</div>
-				<!-- Feed Content -->
-				<%= render "courses/shared/feed" %>
+				<!-- Feed top Navbar -->
+				<%= render "courses/shared/feed/top_navbar" %>
+				
+				<!-- Feed Course -->
+				<%= turbo_frame_tag Course.new do %>
+					<% if @courses.none? %>
+					<%= render "courses/shared/empty_state" %>
+					<% end %>
+  				<% end %>
+
+				<%= turbo_frame_tag "courses" do %>
+					<%= render @courses %>
+				<% end %>
 			</div>
 		</div>
 	</div>
-	<!-- Navbar Bottom -->
-	<%= render "courses/shared/navbar" %>
+	<!-- Mobile Navbar Bottom -->
+	<%= render "courses/shared/mobile_navbar" %>
 </div>

@@ -5,5 +5,4 @@ class Question < ApplicationRecord
   #Slugged concern
   include ItemsSlugged
 
-  
 end

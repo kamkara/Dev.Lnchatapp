@@ -10,9 +10,7 @@ Rails.application.routes.draw do
     resources :flashes, only: [:create, :index, :new]
     resources :questions, only: [:create, :new]
   end
-  #resources :flash_cards, except:[:index, :show] do
-    # resources :line_items, except: [:index, :show]
-  #end
+  
 
   resources :courses
   resources :citytowns

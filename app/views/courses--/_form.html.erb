@@ -1,0 +1,56 @@
+<%= form_with(model: course, class: "contents") do |f| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+        <% course.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= f.text_field :title, label:"Titre ...", class: "ln--field w-full" , placeholder:"Le titre ..." %>
+  </div>
+
+  <div class="my-5 bg-white">
+    <%= f.rich_text_area :content, label: "Contenu de la léçon ..." , placeholder:"Corps de la léçon ...",
+     class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+<div class="flex mt-2">
+  <div class="flex w-1/4 ">
+    <div class="flex select">
+       <%= f.select :level_name, @levels.map{|level| [level.title]}, label:"Niveau ...", class:" border-red-400 rounded py-2 px-3",
+        placeholder:"Série" %>
+    </div>
+    
+  </div>
+  <div class="flex w-1/4 ">
+    <div class="flex select ">
+       <%= f.select :material_name, @materials.map{|material| [material.title]}, label:"Matieres ...", class:" border-red-400 rounded py-2 px-3",
+        placeholder:"Série" %>
+    </div>
+  </div>
+  <div class="flex w-1/4  ml-2">
+    <div class="flex ">
+      <%= f.label :published, "Publié la Léçon", class:"font-bold text-white" %>
+      <%= f.check_box :published, class: "block mt-2" %>
+    </div>
+  </div>
+  <div class="flex w-1/4  ml-2">
+    <div class="flex ">
+      <div class="flex select ">
+       <%= f.select :status, Course::STATUS, label:"Matieres ...", class:" border-red-400 rounded py-2 px-3",
+        placeholder:"Série" %>
+    </div>
+    </div>
+  </div>
+</div>
+
+  <div class="inline">
+    <%= f.submit "Créer la Léçon", class: "rounded-md py-2 px-3 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

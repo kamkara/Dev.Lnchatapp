@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   
   #Course items
-  resources :courses, shallow: true do
+  resources :courses do
     resources :flashes, only: [:create, :index, :new]
     resources :questions, only: [:create, :new, :show] do
       resources :anwsers, only: [:index, :create, :new]
@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   resources :levels
 
   #Courses
-  get "show-course", to:"courses#show"
   get "feed", to:"courses#index"
+  get "show-course", to:"courses#show"
   get "new-course", to:"courses#new"
 
   #Membership

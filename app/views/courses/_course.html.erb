@@ -1,28 +1,32 @@
 
-<div id="<%= dom_id course %>" class="w-full flex border-b p-2 border-gray-300">
-        <div class="flex flex-col ">
+<div id="<%= dom_id course %>" class="w-full flex border p-2">
+        <div class="flex flex-col text-white">
 	        <div class="flex justify-between ">
-			<div class="flex-none  "></div>
-				<div class="flex-initial  ">
+				<div class="flex flex-center  ">
+				<div class="text-xl">
+					<%= link_to sanitize("&larr;"), feed_path %>
+				</div>
 					<p class="font-bold text-xl "><%= course.material_name %></p>	
 				</div>	
-				
 			</div>
 			<div class="mt-4">
-				<span class="font-bold text-xl"><%= course.title %></span>
+				<h1 class="font-bold text-xl"><%= course.title %></h1>
 			</div>
 
 			<div class="mt-1">
-				<%= truncate(strip_tags(course.content.to_s.html_safe), length: 400) %> 
+				<%= truncate(strip_tags(course.content.to_s.html_safe), length: 600) %> 
 				<span class="ln-btn-color ln-btn-hover-color ">Voir plus</span>
+				<!-- 
+				Au click display all content
+				-->
 			</div>
             
       <!-- Bottom items of course -->
       <div class="border-t mt-2">
 	      <div class="flex justify-between my-1">
-          <%= render "courses/shared/feed/feed_essentials", course: course %>
-          <%= render "courses/shared/feed/feed_exercices", course: course %>
-          <%= render "courses/shared/feed/feed_questions", course: course %>
+          <%= render "courses/shared/feed/feed_essentials", course: @course %>
+          <%= render "courses/shared/feed/feed_exercices", course: @course %>
+          <%= render "courses/shared/feed/feed_questions", course: @course %>
         </div>
       </div>
 		</div> 

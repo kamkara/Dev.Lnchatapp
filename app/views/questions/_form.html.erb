@@ -1,15 +1,5 @@
 <%= form_with(model: @question, url: [@course, @question], class: "contents") do |f| %>
-  <% if question.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
-
-      <ul>
-        <% question.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_error_notification(question) %>
 
   <div class="my-5">
     <%= f.text_field :title, placeholder:"Posez une question bien precisé", class: "block border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>

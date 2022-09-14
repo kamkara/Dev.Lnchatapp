@@ -1,13 +1,13 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :set_course, only: %i[  show edit update destroy ]
   before_action :find_levels, :find_materials
 
   # GET /courses or /courses.json
   def index
    #@courses = Course.feed.includes(:flashes, :user_echanges).all_ordered
-    @courses = Course.feed.all_ordered
-    
+    @courses = Course.feed.all_ordered.includes(:flashes)
+
   end
 
   # GET /courses/1 or /courses/1.json

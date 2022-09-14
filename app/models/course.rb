@@ -3,9 +3,10 @@ class Course < ApplicationRecord
   has_rich_text :content
   has_many :flashes, class_name: "Flash", foreign_key: "course_id", dependent: :destroy
   has_many :questions, class_name: "Question", foreign_key: "course_id", dependent: :destroy
+  has_many :anwsers, class_name: "Anwser", foreign_key: "course_id", dependent: :destroy
                             
 
-  ################## FIX N+1  ###############
+################## FIX N+1  ###############
 Course.all.with_rich_text_content # Preload the body without attachments.
 Course.all.with_rich_text_content_and_embeds # Preload both body and attachments.
 

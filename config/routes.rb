@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   #resources :flash_cards
   resources :questions, except: [:create, :new]
   resources :flashes, except: [:create, :index, :new]
+  resources :anwsers
   
   
   #Course items
   resources :courses, shallow: true do
     resources :flashes, only: [:create, :index, :new]
-    resources :questions, only: [:create, :new]
+    resources :questions, only: [:create, :new, :show] do
+      resources :anwsers, only: [:index, :create, :new]
+    end
   end
   
 
@@ -19,9 +22,9 @@ Rails.application.routes.draw do
   resources :levels
 
   #Courses
-  get "courses-show", to:"courses#show"
+  get "show-course", to:"courses#show"
   get "feed", to:"courses#index"
-  get "lesson", to:"courses#new"
+  get "new-course", to:"courses#new"
 
   #Membership
   get "teacher-sign-up" , to:'membership#teacherUp'

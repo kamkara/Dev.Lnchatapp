@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :courses, class_name: "Course", foreign_key: "user_id"
   has_many :flashes, class_name: "Flash", foreign_key: "user_id"
   has_many :questions, class_name: "Question", foreign_key: "user_id"
+  has_many :anwsers, class_name: "Anwser", foreign_key: "user_id"
   
             
   attr_writer :logged

@@ -1,0 +1,93 @@
+
+<% @question.answer.each do |answer| %>
+	<% if curren_user.id != anwser.user_id %>
+		<% if current_user.user_role == "Student" %>
+			<!-- question-->
+			<div class="col-start-1 col-end-11 bg-white border rounded-bl-xl rounded-r-xl">
+				<div class="flex items-center text-md  p-2">
+					<div class="">
+						<div class="pb-2">
+							<div class="font-semibold text-sm">
+								<%= current_user.full_name %>
+							</div>
+							<div class="italic text-xs ml-4">
+								élève au
+								<%= current_user.school_name %>
+							</div>
+						</div>
+						<div class="flex">
+							<%= answer.content %>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% else %>
+			<!-- question-->
+			<div class="col-start-1 col-end-11 bg-white border rounded-bl-xl rounded-r-xl">
+				<div class="flex items-center text-md  p-2">
+					<div class="">
+						<div class="pb-2">
+							<div class="font-semibold text-sm">
+								<%= current_user.full_name %>
+							</div>
+							<div class="italic text-xs ml-4">
+								élève au
+								<%= current_user.school_name %>
+							</div>
+						</div>
+						<div class="flex">
+							<%= answer.content %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<% end %>
+	<% else %>
+		<% if current_user.user_role == "Student" %>
+		<!-- anwser-->
+		<div class="col-start-3 col-end-13 border rounded-br-xl rounded-l-xl">
+			<div class="flex items-center justify-start flex-row-reverse bg-indigo-100 p-2">
+				<div class="">
+					<div class="pb-2">
+						<div class="font-semibold text-sm">
+							<%= current_user.full_name %>
+						</div>
+						<div class="italic text-xs ml-4">
+							élève au
+							<%= current_user.school_name %>
+						</div>
+					</div>
+					<div class="flex">
+						<%= answer.content %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<% else %>
+		<!-- anwser-->
+		<div class="col-start-3 col-end-13 border rounded-br-xl rounded-l-xl">
+			<div class="flex items-center justify-start flex-row-reverse bg-indigo-100 p-2">
+				<div class="">
+					<div class="pb-2">
+						<div class="font-semibold text-sm">
+							<%= current_user.full_name %>
+						</div>
+						<div class="italic text-xs ml-4">
+							élève au
+							<%= current_user.school_name %>
+						</div>
+					</div>
+					<div class="flex">
+						<%= answer.content %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+
+	<% end %>
+    
+<% end %>

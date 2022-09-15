@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
   
   #resources :flash_cards
-  resources :questions, except: [:create, :new]
-  resources :flashes, except: [:create, :index, :new]
-  resources :anwsers, except: [:create, :new]
-  
-  
-  #Course items
-  resources :courses do
-    resources :flashes, only: [:create, :index, :new]
-    resources :questions, only: [:create, :new, :show] do
-      resources :anwsers, only: [:create, :new]
+  resources :questions, only: [:index, :show]
+  resources :flashes, only: [:index, :show]
+  resources :anwsers, only: [:index, :show]
+
+  #Course Items 
+   resources :courses do
+    resources :flashes, except: [:index, :show] 
+    resources :questions, except: [:index, :show] do
+      resources :anwsers, except: [:index, :show]
     end
   end
   

@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
     @question.user_id = current_user.id
     respond_to do |format|
       if @question.save
-        format.html { redirect_to question_path(@question), notice: "Question was successfully created." }
+        format.html { redirect_to course_path(@course), notice: "Question was successfully created." }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new, status: :unprocessable_entity }

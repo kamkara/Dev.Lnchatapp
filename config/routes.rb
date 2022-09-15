@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   #resources :flash_cards
   resources :questions, except: [:create, :new]
   resources :flashes, except: [:create, :index, :new]
-  resources :anwsers
+  resources :anwsers, except: [:create, :new]
   
   
   #Course items
   resources :courses do
     resources :flashes, only: [:create, :index, :new]
     resources :questions, only: [:create, :new, :show] do
-      resources :anwsers, only: [:index, :create, :new]
+      resources :anwsers, only: [:create, :new]
     end
   end
   

@@ -1,4 +1,5 @@
 class AnwsersController < ApplicationController
+  before_action :authenticate_user!, :set_question
   before_action :set_anwser, only: %i[ show edit update destroy ]
 
   # GET /anwsers or /anwsers.json
@@ -61,6 +62,10 @@ class AnwsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_anwser
       @anwser = Anwser.find(params[:id])
+    end
+
+    def set_question
+      @question = 
     end
 
     # Only allow a list of trusted parameters through.

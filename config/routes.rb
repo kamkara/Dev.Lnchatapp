@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   #Course Items 
    resources :courses do
     resources :flashes, except: [:index, :show] 
-    resources :questions, except: [:index, :show] do
-      resources :anwsers, except: [:index, :show]
-    end
+    resources :questions, except: [:index, :show]
+  end
+
+  resources :quesstions, only: [:show] do
+    resources :anwsers, except: [:index, :show]
   end
   
 

@@ -1,0 +1,34 @@
+<!-- Cible: post card-->
+<%= turbo_frame_tag :index, class:"post-card" do %>
+    <% @posts.each do |post| %>
+        <div class="border p-2 mb-2">
+            <div class="font-semibold ">
+                <h1 class="">
+                    <%= link_to post_path(post), data: { turbo_frame: "details", 
+                  action: "turbo:click->navigation#displayLoading",
+                  navigation_target: "link" } do %>
+                        <%= post.title %>
+                    <% end %>
+
+                </h1>
+            </div>
+
+            <div class="">
+                <p class="my-2">
+                    <%= link_to post_path(post), data: { turbo_frame: "details", 
+                  action: "turbo:click->navigation#displayLoading",
+                  navigation_target: "link" } do %>
+                        <%= truncate(strip_tags(post.content.to_s.html_safe), length: 200) %>
+                    <% end %>
+                </p>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+
+<!-- Cible: post details-->
+<%= turbo_frame_tag :details, class:"post-details",
+         "data-navigation-target": "content"  do %>
+    Select a movie for more details...
+<% end %>
+

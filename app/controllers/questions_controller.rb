@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1 or /questions/1.json
   def show
-    @questions = @course.questions.includes(:anwser).all_ordered
+    @questions = @course.questions.all_ordered
   end
 
   # GET /questions/new

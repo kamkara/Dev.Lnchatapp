@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
   
+  #Course Items 
+  resources :courses do
+    resources :flashes, except: [:index, :show] 
+    resources :questions, except: [:index, :show]
+  end
+  #Question resources and anwsers nested
+  resources :questions, only: [:show] do
+    resources :anwsers, except: [:index, :show]
+  end
+  
   #resources :flash_cards
   resources :questions, only: [:index, :show]
   resources :flashes, only: [:index, :show]
   resources :anwsers, only: [:index, :show]
-
-  #Course Items 
-   resources :courses do
-    resources :flashes, except: [:index, :show] 
-    resources :questions, except: [:index, :show]
-  end
-
-  resources :quesstions, only: [:show] do
-    resources :anwsers, except: [:index, :show]
-  end
-  
 
   resources :courses
   resources :citytowns

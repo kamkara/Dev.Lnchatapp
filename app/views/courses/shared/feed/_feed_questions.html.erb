@@ -34,7 +34,7 @@
 		<% course.questions.each do |question| %>	
 			<div tabindex="0" class="collapse border rounded-md my-4"> 
 				<div class="collapse-title text-xl font-medium">
-					<%= link_to question_path(question) do %>
+					<%= link_to questions_path(question) do %>
 						<%= question.title %> - <small class="ln-btn-color ln-btn-hover-color text-sm py-1 ">Voir plus</small> 
 					<% end %>
 				</div>

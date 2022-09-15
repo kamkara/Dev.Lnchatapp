@@ -23,7 +23,7 @@ class SchoolsController < ApplicationController
 
   # POST /schools or /schools.json
   def create
-    @school = curren_user.schools.build(school_params)
+    @school = current_user.schools.build(school_params)
 
     respond_to do |format|
       if @school.save

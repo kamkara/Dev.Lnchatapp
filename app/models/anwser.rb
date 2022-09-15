@@ -3,7 +3,6 @@ class Anwser < ApplicationRecord
   belongs_to :user
   has_rich_text :content
   
-  delegate :course, to: :question
 
   ################## FIX N+1  ###############
   Anwser.all.with_rich_text_content # Preload the body without attachments.

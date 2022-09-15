@@ -12,9 +12,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1 or /courses/1.json
   def show
-    
-    #@line_item_dates = @quote.line_item_dates.includes(:line_items).ordered
-    #@flash_cards = @course.flash_cards.all_ordered
+   
   end
 
   # GET /courses/new

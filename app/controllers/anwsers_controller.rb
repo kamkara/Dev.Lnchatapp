@@ -69,7 +69,7 @@ class AnwsersController < ApplicationController
     
     #Set course
     def set_course
-      @course = Course.friendly.find(params[:course_id])
+      #@course = Course.friendly.find(params[:course_id])
     end
 
     def set_question

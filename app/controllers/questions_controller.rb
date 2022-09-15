@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!,
-                :set_course
-  before_action :set_question, only: %i[ index show edit update destroy ]
-
+  before_action :authenticate_user!
+  before_action :set_course, except: %i[index, show]
+  before_action :set_question, only: %i[ index edit update destroy ]
+  before_action :set_question_params, only: %i[ show ]
   # GET /questions or /questions.json
   def index
     @questions = Question.all
@@ -11,9 +11,10 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1 or /questions/1.json
   def show
-    #@questions = @course.questions.all_ordered
+   #@question = Question.friendly.find(params[:question_id])
+    #@anwser = @question.anwsers.find(params[:id])
   end
-
+  
   # GET /questions/new
   def new
     @question = @course.questions.build
@@ -29,7 +30,7 @@ class QuestionsController < ApplicationController
     @question.user_id = current_user.id
     respond_to do |format|
     if @question.save
-        format.html { redirect_to question_path(@question), notice: "Question was successfully created." }
+        format.html { redirect_to question_url(@question), notice: "Question was successfully created." }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +66,10 @@ class QuestionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_question
       @question = @course.questions.friendly.find(params[:id])
+    end
+
+    def set_question_params
+      @question = Question.friendly.find(params[:id])
     end
 
     #Set course

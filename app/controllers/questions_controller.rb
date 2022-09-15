@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_course, only: %i[ create new]
+  before_action :authenticate_user!,
+                :set_course
   before_action :set_question, only: %i[ index show edit update destroy ]
 
   # GET /questions or /questions.json
@@ -27,14 +27,14 @@ class QuestionsController < ApplicationController
   def create
     @question = @course.questions.build(question_params)
     @question.user_id = current_user.id
-    respond_to do |format|
-      if @question.save
+    if @question.save
+      respond_to do |format|
         format.html { redirect_to course_path(@course), notice: "Question was successfully created." }
-        format.json { render :show, status: :created, location: @question }
-      else
+        format.turbo_stream { flash.now[:notice] = "Merci, Votre question est envoyée aux professeurs." }
+      end
+    else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
     end
   end
 
@@ -69,7 +69,7 @@ class QuestionsController < ApplicationController
 
     #Set course
     def set_course
-      @course = Course.friendly.find(params[:course_id])
+      @course = @course.friendly.find(params[:course_id])
     end
 
     # Only allow a list of trusted parameters through.

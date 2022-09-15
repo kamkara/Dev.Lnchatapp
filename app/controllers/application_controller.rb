@@ -1,26 +1,17 @@
 class ApplicationController < ActionController::Base
-    #Notice flash type
-    add_flash_types :success, :warning, :info
+
     protect_from_forgery with: :exception
     before_action  :set_city,
                     :set_material,
                     :set_level,
                     :store_action
     
-
     #Keep clean Application conroller, moved on noncern
     before_action :configure_permitted_parameters, if: :devise_controller?
     
     
     # Overwriting the sign_out redirect path method
-    def after_sign_out_path_for(resource_or_scope)
-        root_path
-    end
-
-    def after_sign_in_path_for(resource)
-        feed_path
-    end
-
+    
     #User Ombording
     def after_sign_up_path_for(resource)
         case current_user.user_role 
@@ -36,8 +27,36 @@ class ApplicationController < ActionController::Base
             root_path
         end
     end
-  
+    
+    def after_sign_out_path_for(resource_or_scope)
+        root_path
+    end
+
+    def after_sign_in_path_for(resource)
+        feed_path
+    end
 private
+    def user_signed_in
+        if user_signed_in? 
+            def is_student?
+                @is_student ||= current_user.user_role == "Student"
+                helper_method :current_student
+            end
+            def is_teacher?
+                @is_teacher ||= current_user.user_role == "Teacher"
+                helper_method :current_teacher
+            end
+            def is_ambassador?
+                @is_ambassador ||= current_user.user_role == "Ambassador"
+                helper_method :current_ambassador
+            end
+            def is_team?
+                @is_team ||= current_user.user_role == "Team" 
+                helper_method :current_team
+            end
+        end
+    end
+    
 
     def set_city
         @citytowns = Citytown.all

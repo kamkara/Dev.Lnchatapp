@@ -1,5 +1,7 @@
-class AnwsersController < ApplicationController
-  before_action :authenticate_user!, :set_question
+class AnwsersController < ApplicationController 
+  before_action :authenticate_user!,
+                :set_course,
+                :set_question
   before_action :set_anwser, only: %i[ show edit update destroy ]
 
   # GET /anwsers or /anwsers.json
@@ -13,7 +15,7 @@ class AnwsersController < ApplicationController
 
   # GET /anwsers/new
   def new
-    @anwser = Anwser.new
+    @anwser = @question.anwsers.build
   end
 
   # GET /anwsers/1/edit
@@ -22,17 +24,18 @@ class AnwsersController < ApplicationController
 
   # POST /anwsers or /anwsers.json
   def create
-    @anwser = Anwser.new(anwser_params)
+    @anwser = @question.anwsers.build(anwser_params)
+    @anwser.user_id = current_user.id
 
-    respond_to do |format|
-      if @anwser.save
-        format.html { redirect_to anwser_url(@anwser), notice: "Anwser was successfully created." }
-        format.json { render :show, status: :created, location: @anwser }
+    if @anwser.save
+      respond_to do |format|
+        format.html { redirect_to question_path(@question), notice: "Anwser was successfully created." }
+        format.turbo_stream { flash.now[:notice] = "Reponse Anvoyée..."}
+      end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @anwser.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /anwsers/1 or /anwsers/1.json
@@ -61,13 +64,18 @@ class AnwsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_anwser
-      @anwser = Anwser.find(params[:id])
+      @anwser = @question.anwsers.find(params[:id])
+    end
+    
+    #Set course
+    def set_course
+      @course = Course.friendly.find(params[:course_id])
     end
 
     def set_question
-      @question = 
+      @question = @course.questions.friendly.find(params[:question_id])
     end
-
+    
     # Only allow a list of trusted parameters through.
     def anwser_params
       params.require(:anwser).permit(:content, :question_id, :user_id)

@@ -75,7 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_15_095450) do
     t.string "title"
     t.string "slug"
     t.string "status"
-    t.boolean "published"
     t.string "level_name"
     t.string "material_name"
     t.uuid "user_id", null: false

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :anwsers
   
   #resources :flash_cards
   resources :questions, only: [:index, :show]

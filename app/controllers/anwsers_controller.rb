@@ -1,7 +1,6 @@
 class AnwsersController < ApplicationController 
-  before_action :authenticate_user!,
-                :set_course,
-                :set_question
+  before_action :authenticate_user!
+  before_action :set_question
   before_action :set_anwser, only: %i[ show edit update destroy ]
 
   # GET /anwsers or /anwsers.json
@@ -30,7 +29,7 @@ class AnwsersController < ApplicationController
     if @anwser.save
       respond_to do |format|
         format.html { redirect_to question_path(@question), notice: "Anwser was successfully created." }
-        format.turbo_stream { flash.now[:notice] = "Reponse Anvoyée..."}
+        format.json { render :show, status: :created, location: @anwser }
       end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,18 +63,13 @@ class AnwsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_anwser
-      @anwser = @question.anwsers.find(params[:id])
-    end
-    
-    #Set course
-    def set_course
-      #@course = Course.friendly.find(params[:course_id])
+      @anwser = Anwser.find(params[:id])
     end
 
     def set_question
-      @question = @course.questions.friendly.find(params[:question_id])
+      @question = @course.questions.friendly.find(params(:question_id))
     end
-    
+
     # Only allow a list of trusted parameters through.
     def anwser_params
       params.require(:anwser).permit(:content, :question_id, :user_id)

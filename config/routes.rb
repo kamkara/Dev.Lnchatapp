@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  
   #Course Items 
   resources :courses do
     resources :flashes, except: [:index, :show] 
@@ -10,9 +9,10 @@ Rails.application.routes.draw do
   #Question resources and anwsers nested
   resources :questions, only: [:index, :show] do
     resources :answers, except: :show do
+      resource :votes, only: [:show]
       scope module: :answers do
-        resource :actions, only: :show
-        resource :correct, only: :show
+        resource :actions, only: [:show]
+        resource :correct, only: [:show]
       end
     end
   end
@@ -50,9 +50,9 @@ Rails.application.routes.draw do
 
   #Membership 
   devise_scope :user do
-    get '/student-sign-in', to: 'devise/sessions#new'
-    get '/student-sign-up', to: 'devise/registrations#new', as: "new_user_registration"
-    delete '/sign-out', to: 'devise/sessions#destroy'
+    get 'student-sign-in', to: 'devise/sessions#new'
+    get 'student-sign-up', to: 'devise/registrations#new', as: "new_user_registration"
+    delete 'sign-out', to: 'devise/sessions#destroy'
   end
   
   devise_for :users

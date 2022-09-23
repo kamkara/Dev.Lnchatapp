@@ -1,10 +1,10 @@
 <%= turbo_frame_tag dom_id(@answer, 'actions') do %>
     <div class="flex mx-2">
         <div class="flex justify-between font-bold ">
-<div class="font-semibold mr-2"><%= answer.vote_count %></div>
+            <div class="font-semibold mr-2"><%#= @answer.vote_count %></div>
 
         <!-- Student Upvote-->
-            <%# if @answer.user.user_role == "Student" %>
+            <% if @answer.user.user_role == "Student" %>
                 <div class="mx-4 ">
                     <%= link_to "Up Vote", answer_votes_path(
                         answer, 
@@ -20,24 +20,24 @@
                         ),
                          class: "card-link font-bold" %>
                 </div>
-            <%# end %>
+            <% end %>
         <!-- Author Options-->
-            <%# if @answer.user_id == current_user&.id %>
+            <% if @answer.user_id == current_user&.id %>
                 <div class="mx-4 ">
                     <%= link_to "Editer", edit_question_answer_path(@answer.question, @answer) %>
                 </div>
                 <div class="">
                     <%= link_to "Suppimer", question_answer_path(@answer.question, @answer), "data-turbo-method": :delete %>
                 </div>
-            <%# end %>
+            <% end %>
 
         <!-- Teacher Action-->
-            <%# if @answer.question.user.user_role == "Teacher" %>
+            <% if @answer.question.user.user_role == "Team" %>
                 <% label = @answer.correct_answer ? "Correcte" : "Est-ce Correcte?" %>
                 <div class="mx-4">
                     <%= link_to label, question_answer_correct_path(@answer.question, @answer) %>
                 </div>
-            <%# end %>
+            <% end %>
         </div>
     </div>
 

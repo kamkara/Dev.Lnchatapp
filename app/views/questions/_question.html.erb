@@ -1,0 +1,19 @@
+<div id="<%= dom_id question %>" class="border text-white p-2">
+<div class="my-5 border rounded-md p-2">
+    <div class="block font-medium mb-1">
+      <h2 class="text-white font-semibold text-xl">
+        <%= question.title %>
+      </h2> 
+    </div>
+    <div class="my-5  text-normal">
+      <%= question.content %>
+    </div>
+</div>
+
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this question", question, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%#= link_to 'Edit this question', edit_course_question_path(question), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

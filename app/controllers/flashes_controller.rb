@@ -25,6 +25,7 @@ class FlashesController < ApplicationController
   def create
     @flash = @course.flashes.build(flash_params)
     @flash.user_id = current_user.id
+    
     respond_to do |format|
       if @flash.save
         format.html { redirect_to course_path(@course), notice: "Flash was successfully created." }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_10_220001) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_23_102629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -116,6 +116,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_220001) do
     t.index ["user_id"], name: "index_materials_on_user_id"
   end
 
+  create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title", null: false
+    t.uuid "user_id", null: false
+    t.uuid "course_id", null: false
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_questions_on_course_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
   create_table "schools", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -165,5 +176,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_220001) do
   add_foreign_key "flashes", "users"
   add_foreign_key "levels", "users"
   add_foreign_key "materials", "users"
+  add_foreign_key "questions", "courses"
+  add_foreign_key "questions", "users"
   add_foreign_key "schools", "users"
 end

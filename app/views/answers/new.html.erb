@@ -1,6 +1,8 @@
 <%= turbo_frame_tag :new_answer do %>
     <% if user_signed_in? %>
-        <%= render "form", question: @question, answer: @answer %>
+        <div class="border pt-6 ">
+            <%= render "form", question: @question, answer: @answer %>
+        </div>
     <% else %>
     <p class="">You need to sign in to post and Answer</p>        
     <% end %>

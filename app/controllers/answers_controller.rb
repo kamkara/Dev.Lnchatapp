@@ -21,9 +21,8 @@ class AnswersController < ApplicationController
     def edit
         @answer = @question.answers.find_by(id: params[:id], user: current_user)
         render turbo_stream: turbo_stream.replace(
-        "answer_#{@answer.id}",
-        partial: "answers/form",
-        locals: { question: @question, answer: @answer }
+            "answer_#{@answer.id}", partial: "answers/form",
+            locals: { question: @question, answer: @answer }
         )
     end
 
@@ -40,7 +39,7 @@ class AnswersController < ApplicationController
     private
 
         def set_question
-            @question = Question.find(params[:question_id])
+            @question = Question.friendly.find(params[:question_id])
         end
 
         def answer_params

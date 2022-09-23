@@ -1,7 +1,7 @@
 module Answers
   class CorrectsController < ApplicationController
     def show
-      @question = Question.find(params[:question_id])
+      @question = Question.friendly.find(params[:question_id])
       @answer = @question.answers.find(params[:answer_id])
       unmark_current_correct
       @answer.toggle!(:correct_answer)

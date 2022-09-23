@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   end
   
   #Question resources and anwsers nested
-  resources :questions, only: [:index, :show] #do
-    #resources :answers, except: :show do
-      #scope module: :answers do
-        #resource :actions, only: :show
-        #resource :correct, only: :show
-      #end
-    #end
-  #end
+  resources :questions, only: [:index, :show] do
+    resources :answers, except: :show do
+      scope module: :answers do
+        resource :actions, only: :show
+        resource :correct, only: :show
+      end
+    end
+  end
   
 
   resources :flashes, only: [:index, :show]

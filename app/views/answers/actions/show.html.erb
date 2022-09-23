@@ -10,7 +10,7 @@
                 </div>
             <% end %>
 
-            <% if @answer.question.user_id == current_user&.id %>
+            <% if @answer.question.user.user_role == "Teacher" %>
                 <% label = @answer.correct_answer ? "Correcte" : "Est-ce Correcte?" %>
                 <div class="mx-4">
                     <%= link_to label, question_answer_correct_path(@answer.question, @answer) %>

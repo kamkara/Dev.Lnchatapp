@@ -1,4 +1,4 @@
-<div class="w-full border p-2 my-2 rounded-md text-white">
+<div class="w-full border my-2 rounded-md text-white">
     <%= content_tag :div, id: dom_id(answer), class:" #{answer.correct_answer? ? "bg-success bg-opacity-25" : ""}" do %>
         <div class="flex">
             <div class="flex justify-around m-2 mb-2 ">
@@ -12,15 +12,14 @@
                     <span class="">
                         <%= answer.user.full_name %>
                         <br>
-                            <span class="text-sm">
-                                élève de
-                                <%= answer.user.level_name %>
-                                à
-                                <%= answer.user.school_name %>, (<%= answer.user.city_name %>)
-                            </span>
+                        <span class="text-sm">
+                            élève de
+                            <%= answer.user.level_name %>
+                            à
+                            <%= answer.user.school_name %>, (<%= answer.user.city_name %>)
                         </span>
-                    </em>
-                </div>
+                    </span>
+                </em>
             </div>
             <div class="m-2">
                 <%= answer.content %>
@@ -28,7 +27,7 @@
             <div class="flex">
                 <%= turbo_frame_tag dom_id(answer, 'actions'), src: question_answer_actions_path(answer.question, answer) %>
             </div>
-        <% end %>
-    </div>
+    <% end %>
+</div>
 
 

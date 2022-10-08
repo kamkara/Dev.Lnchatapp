@@ -8,56 +8,20 @@ class ApplicationController < ActionController::Base
     
     #Keep clean Application conroller, moved on noncern
     before_action :configure_permitted_parameters, if: :devise_controller?
-    
-    
-    # Overwriting the sign_out redirect path method
-    
-    #User Ombording
-    def after_sign_up_path_for(resource)
-        case current_user.user_role 
-        when "Student"
-            profil_path
-        when "Teacher"
-            profil_path
-        when "Ambassadeur"
-            dashboard_path
-        when "Team"
-            dashboard_path            
-        else
-            root_path
-        end
-    end
-    
-    def after_sign_out_path_for(resource_or_scope)
-        root_path
-    end
-
+    #After sign in
     def after_sign_in_path_for(resource)
         feed_path
     end
-private
-    def user_signed_in
-        if user_signed_in? 
-            def is_student?
-                @is_student ||= current_user.user_role == "Student"
-                helper_method :current_student
-            end
-            def is_teacher?
-                @is_teacher ||= current_user.user_role == "Teacher"
-                helper_method :current_teacher
-            end
-            def is_ambassador?
-                @is_ambassador ||= current_user.user_role == "Ambassador"
-                helper_method :current_ambassador
-            end
-            def is_team?
-                @is_team ||= current_user.user_role == "Team" 
-                helper_method :current_team
-            end
-        end
-    end
     
+    def after_sign_up_path_for(resource)
+        feed_path
+    end
+    def after_sign_out_path_for(resource)
+        root_path
+    end
 
+
+private
     def set_city
         @citytowns = Citytown.all
     end
@@ -78,7 +42,7 @@ private
             request.path != "/users/confirmation" &&
             request.path != "/users/sign_out" &&
             !request.xhr?) # don't store ajax calls
-        store_location_for(:user, request.fullpath)
+            store_location_for(:user, request.fullpath)
         end
     end
 protected

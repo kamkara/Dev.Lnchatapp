@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'student-sign-in', to: 'devise/sessions#new'
     get 'student-sign-up', to: 'devise/registrations#new', as: "new_user_registration"
-    delete 'sign-out', to: 'devise/sessions#destroy'
+    delete 'deconnecter',  to: "devise/sessions#destroy", as: "destroy_user_session_path"
   end
   
   devise_for :users

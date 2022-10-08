@@ -81,7 +81,8 @@
             <% end %>
         </div>
         <div class="my-2">
-            <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class:"ln-sidebar-item"  do %>
+        <%= link_to destroy_user_session_path, method: :delete, class:"ln-sidebar-item"  do %>
+
             <svg
                 class="h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"

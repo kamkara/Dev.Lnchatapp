@@ -2,7 +2,8 @@
 <div class="container-fluid" >
 	<div class="flex flex-wrap ">
 		<div class="m-auto border border-x-slate-300 ">
-			<%= render "membership/shared/sign_up/header" %>
+			<!-- Student Sign Up Header-->	
+			<%= render "devise/shared/student_sign_up_header" %>
 			<div class="px-4 md:px-302 py-8">
 				<h2 class="flex justify-center text-2xl text-white font-bold">Incription élève</h2>
 				<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

@@ -88,4 +88,18 @@ module ApplicationHelper
     end
   end
 
+  def current_user_status
+    if current_user.user_role == "Student"
+      return "student"
+    elsif current_user.user_role == "Teacher"
+      return "teacher"
+    elsif current_user.user_role == "Ambassador"
+      return "ambassador"
+    elsif current_user.user_role == "Team"
+      return "team"
+    else
+      return ""
+    end
+  end
+
 end

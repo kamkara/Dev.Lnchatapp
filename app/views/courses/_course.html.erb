@@ -15,22 +15,15 @@
 			</div>
 			<!-- Items of course -->
 			<div class="mt-2" data-controller="navigation" data-action="turbo:before-fetch-response@document->navigation#displayContent">
-<%= turbo_frame_tag :index, class:"post-card" do %>
-    <%= link_to "", data: { turbo_frame: "details", 
-                    action: "turbo:click->navigation#displayLoading",
-                    navigation_target: "link" } do %>
-        <%= truncate(strip_tags(course.content.to_s.html_safe), length: 600) %>
-        <span class="ln-btn-color ln-btn-hover-color ">Voir plus</span>
-    <% end %>
-<% end %>
-
-<div class="">
-    <%= turbo_frame_tag :details, class:"post-details",
-            "data-navigation-target": "content"  do %>
-        Select a movie for more details...
-    <% end %>
-</div>
-
+                <%= turbo_frame_tag :index, class:"post-card" do %>
+                    <%= link_to "", data: { turbo_frame: "details", 
+                                    action: "turbo:click->navigation#displayLoading",
+                                    navigation_target: "link" } do %>
+                        <%#= truncate(strip_tags(course.content.to_s.html_safe), length: 600) %>
+                        <%= course.content %>
+                        
+                    <% end %>
+                <% end %>
 			</div>
             
       <!-- Bottom items of course -->

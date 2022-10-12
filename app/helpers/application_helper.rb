@@ -20,7 +20,7 @@ module ApplicationHelper
   
   #site description
   def description
-    "Etudier avec facilité."
+    "Prepa Bac, Comprendre Philosophie."
   end
     
 #Site Keys worlds

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exercices
   
   #Course Items 
   resources :courses do
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :exercices
   
   resources :flashes, only: [:index, :show]
   resources :anwsers, only: [:index, :show]

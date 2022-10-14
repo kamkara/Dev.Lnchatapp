@@ -1,6 +1,4 @@
 class ExercicesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_course
   before_action :set_exercice, only: %i[ show edit update destroy ]
 
   # GET /exercices or /exercices.json
@@ -14,7 +12,7 @@ class ExercicesController < ApplicationController
 
   # GET /exercices/new
   def new
-    @exercice = @course.exercices.build
+    @exercice = Exercice.new
   end
 
   # GET /exercices/1/edit
@@ -23,12 +21,11 @@ class ExercicesController < ApplicationController
 
   # POST /exercices or /exercices.json
   def create
-    @exercice = @course.exercices.build(exercice_params)
-    @exercice.user_id = current_user.id 
+    @exercice = Exercice.new(exercice_params)
 
     respond_to do |format|
       if @exercice.save
-        format.html { redirect_to course_path(@course), notice: "Exercice was successfully created." }
+        format.html { redirect_to exercice_url(@exercice), notice: "Exercice was successfully created." }
         format.json { render :show, status: :created, location: @exercice }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -63,16 +60,11 @@ class ExercicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exercice
-      @exercice = Exercice.friendly.find(params[:id])
-    end
-
-    #Find course
-    def set_course
-      @course = Course.friendly.find(params[:course_id])
+      @exercice = Exercice.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def exercice_params
-      params.require(:exercice).permit(:name, :slug, :user_id, :course_id)
+      params.require(:exercice).permit(:name, :content, :correct_content, :slug, :user_id, :course_id)
     end
 end

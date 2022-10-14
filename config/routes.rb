@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :exercices
-
+  
   #Course Items 
   resources :courses do
     resources :flashes, except: [:index, :show] 
     resources :questions, except: [:index, :show]
+    resources :exercices, except: [:index, :show]
   end
   
   #Question resources and anwsers nested
@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     end
   end
   
-
+  resources :exercices
+  
   resources :flashes, only: [:index, :show]
   resources :anwsers, only: [:index, :show]
 

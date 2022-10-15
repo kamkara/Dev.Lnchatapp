@@ -1,6 +1,59 @@
-<button class=" flex ml-2 text-sm font-semibold">
-	<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="20" height="20" class="bg-white rounded-md px-1">
-		<path d="M22.2,2.163a4.992,4.992,0,0,0-4.1-1.081l-3.822.694A4,4,0,0,0,12,3.065,4,4,0,0,0,9.716,1.776L5.9,1.082A5,5,0,0,0,0,6V16.793a5,5,0,0,0,4.105,4.919l6.286,1.143a9,9,0,0,0,3.218,0L19.9,21.712A5,5,0,0,0,24,16.793V6A4.983,4.983,0,0,0,22.2,2.163ZM11,20.928c-.084-.012-.168-.026-.252-.041L4.463,19.745A3,3,0,0,1,2,16.793V6A3,3,0,0,1,5,3a3.081,3.081,0,0,1,.54.049l3.82.7A2,2,0,0,1,11,5.712Zm11-4.135a3,3,0,0,1-2.463,2.952l-6.285,1.142c-.084.015-.168.029-.252.041V5.712a2,2,0,0,1,1.642-1.968l3.821-.7A3,3,0,0,1,22,6Z"/>
-	</svg>
-	<span class="bg-black ml-1">Exercices</span>
-</button>
+<%= render "courses/shared/feed/empty_state" %>
+
+<label for="exercice-modal" class="flex ml-2 text-md font-semibold modal-button">
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="20" height="20" class="bg-white rounded-md px-1">
+    <path d="M22.2,2.163a4.992,4.992,0,0,0-4.1-1.081l-3.822.694A4,4,0,0,0,12,3.065,4,4,0,0,0,9.716,1.776L5.9,1.082A5,5,0,0,0,0,6V16.793a5,5,0,0,0,4.105,4.919l6.286,1.143a9,9,0,0,0,3.218,0L19.9,21.712A5,5,0,0,0,24,16.793V6A4.983,4.983,0,0,0,22.2,2.163ZM11,20.928c-.084-.012-.168-.026-.252-.041L4.463,19.745A3,3,0,0,1,2,16.793V6A3,3,0,0,1,5,3a3.081,3.081,0,0,1,.54.049l3.82.7A2,2,0,0,1,11,5.712Zm11-4.135a3,3,0,0,1-2.463,2.952l-6.285,1.142c-.084.015-.168.029-.252.041V5.712a2,2,0,0,1,1.642-1.968l3.821-.7A3,3,0,0,1,22,6Z"/>
+</svg>
+<span class="bg-black ml-1">Exercices</span>
+
+</label>
+<!-- Essential  Feature-->
+<input type="checkbox" id="exercice-modal" class="modal-toggle"/>
+<div class="modal modal-bottom sm:modal-middle" ">
+    <div class="modal-box md:w-10/12 md:max-w-4xl text-white bg-black border">
+        <div class="flex max-w-screen mx-auto">
+            <div class="mx-auto">
+                <h1 class="flex items-center">Les exercices de la léçons</h1>
+            </div>
+            <% if current_user_status == "team" || "teacher"  %>
+
+                <%= link_to new_course_exercice_path(course), class:"ln-btn-color ln-btn-hover-color flex" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="16px" height="16px" class="bg-white rounded-md px-1">
+                        <g><path d="M480,224H288V32c0-17.673-14.327-32-32-32s-32,14.327-32,32v192H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h192v192   c0,17.673,14.327,32,32,32s32-14.327,32-32V288h192c17.673,0,32-14.327,32-32S497.673,224,480,224z"/></g>
+                    </svg>
+                    <span tabindex="0" class="mx-2">Créer</span>
+                <% end %>
+            <% end %>
+        </div>
+        <% course.exercices.each do |exercice| %>
+            <div tabindex="0" class="collapse border rounded-md my-4">
+                <div class="collapse-title text-xl font-medium">
+                    <%= exercice.name %>
+                    -
+                    <small class="ln-btn-color ln-btn-hover-color text-sm py-1 ">Voir plus</small>
+                </div>
+                <div class="collapse-content">
+                    <%= exercice.content %>
+
+                </div>
+                    <div class="flex flex-row my-5 mt-5">
+                        <div class="basis-1/3">
+                            
+                        </div>
+                        <div class="basis-1/3">
+                            <%= link_to 'Accéder à la corréction', exercice_path(exercice), class:"ln-btn-color ln-btn-hover-color py-2 px-4" %>
+
+                        </div>
+                        <div class="basis-1/3">
+                            
+                        </div>
+                    </div>
+            </div>
+        <% end %>
+
+        
+        <div class="modal-action pb-4">
+            <label for="exercice-modal" class="btn btn-sm btn-circle absolute ">✕</label>
+        </div>
+    </div>
+</div>

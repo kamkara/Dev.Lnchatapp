@@ -4,6 +4,7 @@ class Course < ApplicationRecord
   has_many :flashes, class_name: "Flash", foreign_key: "course_id", dependent: :destroy
   has_many :questions, class_name: "Question", foreign_key: "course_id", dependent: :destroy
   has_many :anwsers, class_name: "Anwser", foreign_key: "course_id", dependent: :destroy
+  has_many :exercices, class_name: "Exercice", foreign_key: "course_id", dependent: :destroy
                             
 
 ################## FIX N+1  ###############

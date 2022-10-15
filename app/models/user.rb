@@ -6,16 +6,16 @@ class User < ApplicationRecord
         :trackable,  :authentication_keys => [:logged]
 
   #RELATIONS
-  has_many :levels, class_name: "Level", foreign_key: "user_id"
-  has_many :materials, class_name: "Material", foreign_key: "user_id"
-  has_many :schools, class_name: "School", foreign_key: "user_id"
-  has_many :citytowns, class_name: "Citytown", foreign_key: "user_id"
-  has_many :courses, class_name: "Course", foreign_key: "user_id"
-  has_many :flashes, class_name: "Flash", foreign_key: "user_id"
-  has_many :questions, class_name: "Question", foreign_key: "user_id"
-  has_many :anwsers, class_name: "Anwser", foreign_key: "user_id"
-  has_many :votes, class_name: "Vote", foreign_key: "user_id"
-  
+  has_many :levels, class_name: "Level", foreign_key: "user_id", dependent: :destroy
+  has_many :materials, class_name: "Material", foreign_key: "user_id", dependent: :destroy
+  has_many :schools, class_name: "School", foreign_key: "user_id", dependent: :destroy
+  has_many :citytowns, class_name: "Citytown", foreign_key: "user_id", dependent: :destroy
+  has_many :courses, class_name: "Course", foreign_key: "user_id", dependent: :destroy
+  has_many :flashes, class_name: "Flash", foreign_key: "user_id", dependent: :destroy
+  has_many :questions, class_name: "Question", foreign_key: "user_id", dependent: :destroy
+  has_many :anwsers, class_name: "Anwser", foreign_key: "user_id", dependent: :destroy
+  has_many :votes, class_name: "Vote", foreign_key: "user_id", dependent: :destroy
+  has_many :exercices, class_name: "Exercice", foreign_key: "user_id", dependent: :destroy
             
   attr_writer :logged
   #enum :role, student: "student", teacher: "teacher", team: "team", default: "student"

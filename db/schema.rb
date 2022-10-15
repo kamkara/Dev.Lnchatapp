@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_23_163042) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_14_105248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -82,6 +82,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_163042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "exercices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.uuid "user_id", null: false
+    t.uuid "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_exercices_on_course_id"
+    t.index ["user_id"], name: "index_exercices_on_user_id"
   end
 
   create_table "flashes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -194,6 +205,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_163042) do
   add_foreign_key "answers", "users"
   add_foreign_key "citytowns", "users"
   add_foreign_key "courses", "users"
+  add_foreign_key "exercices", "courses"
+  add_foreign_key "exercices", "users"
   add_foreign_key "flashes", "courses"
   add_foreign_key "flashes", "users"
   add_foreign_key "levels", "users"

@@ -1,0 +1,27 @@
+<%= form_with(model: exercice, url: [@course, @exercice], class: "contents") do |f| %>
+
+  <%= form_error_notification(exercice) %>
+
+
+  <div class="my-5">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder:"Titre de l'exercice", class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+<div class="editor-field">
+
+    <%= f.label :"contenu exercice" %>
+    <%= f.rich_text_area :content, placeholder:"Exercice contenu", class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+<div class="editor-field">
+
+    <%= f.label :"Correction"%>
+    <%= f.rich_text_area :correct_content, placeholder:"Exercice correction", class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+
+  <div class="inline">
+    <%= f.submit "Créer Exercice", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

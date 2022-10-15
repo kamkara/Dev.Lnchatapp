@@ -55,12 +55,20 @@
 
         <div class="my-2">
             <%= link_to root_path, class:"ln-sidebar-item"  do %>
-            <div class="h-10 w-10 bg-white border rounded-full"></div>
+            <% user_avatar = "#{[current_user.first_name.first, current_user.last_name.first].join('')}"  %>
+
+            
+            <p class="flex h-12 w-12 rounded-full bg-white font-bold text-black mr-2 uppercase">
+                <span class="flex justify-center mx-auto py-3">
+                    <%= user_avatar %>
+                </span>
+            </p>
             <span class="ln-sidebar-text">Mon compte</span>
             <% end %>
         </div>
         <!-- Add New Course-->
         <% if current_user_status == "team" || "teacher"  %>
+        <!--
         <div class="my-2 flex">
             <%= link_to  "new-course", data:{ turbo_frame: dom_id(Course.new)},
                 class:" ln-sidear-item bg-blue-600 rounded-full flex items-center p-2 font-bold"  do %>
@@ -71,7 +79,8 @@
                 <span class="ln-sidebar-text">Nouvelle léçon</span>
             <% end %>
         </div>
-        <!-- Add New Course-->
+        -->
+        <!-- Add Ne#w Course-->
         <div class="my-2 flex">
             <%= link_to  "dashboard",
                 class:" ln-sidear-item bg-blue-600 rounded-full flex items-center p-2 font-bold"  do %>

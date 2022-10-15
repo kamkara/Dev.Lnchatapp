@@ -1,37 +1,18 @@
-<div id="<%= dom_id exercice %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= exercice.name %>
-  </p>
+<div id="<%= dom_id exercice %>" class="p-2 border text-white">
+  <div class="my-5">
+    <h1 class="font-bold text-xl md:text-2xl">
+    La correction de <%= exercice.name %>
+    </h1>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Content:</strong>
-    <%= exercice.content %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Correct content:</strong>
+  <div class="my-5 border rounded-md mt-2 p-2 ">
     <%= exercice.correct_content %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= exercice.slug %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= exercice.user_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Course:</strong>
-    <%= exercice.course_id %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this exercice", exercice, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this exercice', edit_exercice_path(exercice), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+  </pdiv
+  <% if current_user_status == "team" || "teacher"  %>
+    <% if action_name != "show" %>
+      <%= link_to "Show this exercice", exercice, class: "text-black rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this exercice', edit_exercice_path(exercice), class: "text-black rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <hr class="mt-6">
+    <% end %>
   <% end %>
 </div>

@@ -8,7 +8,8 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   theme: {
-    extend: {
+    extend: { 
+      
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
@@ -18,6 +19,7 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
-     require("daisyui"),
+    require("daisyui"),
+    require('@tailwindcss/aspect-ratio'),
   ]
 }

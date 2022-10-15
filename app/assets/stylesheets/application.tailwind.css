@@ -50,6 +50,10 @@
     @apply text-white;
   }
 
+  /* box create editor */
+  .editor-field {
+    @apply my-5 p-4 row-span-3 bg-white;
+  }
   /* notice  */
   
   .msg-notice {
@@ -58,6 +62,8 @@
   .msg-alert {
     @apply bg-red-300 text-red-900;
   }
+
+
 }
 
 @import 'actiontext.css';

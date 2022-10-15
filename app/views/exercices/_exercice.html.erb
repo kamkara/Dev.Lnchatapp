@@ -10,7 +10,7 @@
   </pdiv
   <% if current_user_status == "team" || "teacher"  %>
     <% if action_name != "show" %>
-      <%= link_to "Show this exercice", exercice, class: "text-black rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%#= link_to "Show this exercice", exercice, class: "text-black rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= link_to 'Edit this exercice', edit_exercice_path(exercice), class: "text-black rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
       <hr class="mt-6">
     <% end %>

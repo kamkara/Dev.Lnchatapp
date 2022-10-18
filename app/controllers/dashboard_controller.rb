@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
     before_action :authenticate_user!
   
   def index
+    @StudentList = User.all_ordered
   end
 
   def home

@@ -28,10 +28,13 @@
                                         </div>
                                     <%# else %>
                                         <% member_avatar = "#{[student.first_name.first, student.last_name.first].join('')}"  %>
-                                        <p class="flex h-10 w-10 rounded-full bg-white font-bold text-black mr-2 uppercase">
-                                            <span class="flex justify-center mx-auto py-3">
+                                            <p class="flex h-10 w-10 rounded-full bg-gray-300 font-bold
+                                             text-black mr-2 uppercase">
+
+                                            <span class="flex justify-center mx-auto py-3 ">
                                                 <%= member_avatar %>
                                             </span>
+                                             </p>
                                         </p>
                                     <%# end %>
                                 </div>
@@ -58,7 +61,8 @@
                             <div class="text-sm leading-5 text-gray-500">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold
                                     rounded-full bg-green-100 text-green-800">
-                                    <%= student.created_at.to_fs(:long) %>
+                                    <%= student.matricule %> -
+                                    ( <%= student.created_at.to_fs(:short) %> )
                                 </span>
                             </div>
 
@@ -67,12 +71,8 @@
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold 
                             rounded-full bg-green-100 text-green-800">
-                            <%= student.updated_at.to_fs(:short) %>
-
-
+                                <%= student.last_sign_in_at.to_fs(:short) %>
                             </span>
-
-
                         </td>
 
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">

@@ -94,6 +94,8 @@ production:
   adapter: postgresql
   encoding: unicode
   database_url: <%= ENV['LNCHATAPP_DATABASE_NAME'] %>
+
+  
   database_name: <%= ENV['LNCHATAPP_DATABASE_NAME'] %>
   database_username: <%= ENV['LNCHATAPP_DATABASE_USERNAME'] %>
   database_password: <%= ENV['LNCHATAPP_DATABASE_PASSWORD'] %>

@@ -47,6 +47,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string "user_class_status"
       t.string "gender"
       t.string "slug"
+      t.string "avatar"
+
       t.timestamps null: false
     end
 

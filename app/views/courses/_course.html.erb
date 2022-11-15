@@ -1,6 +1,9 @@
 
 <div id="<%= dom_id course %>" class="w-full flex border p-2">
+	
+	<!-- Onglet title -->
 	<% @title=course.title %>
+
     <div class="flex flex-col text-white">
 		<!-- Show course meta -->
 		<div class="flex flex-row">
@@ -18,19 +21,15 @@
 			<h1 class="font-bold text-xl md:text-2xl"><%= course.title %></h1>
 		</div>
 		<!-- Items of course -->
-		<div class="m-2" data-controller="navigation" data-action="turbo:before-fetch-response@document->navigation#displayContent">
-            <%= turbo_frame_tag :index, class:"post-card" do %>
-                <%= course.content %>
-            <% end %>
+		<div class="m-2">
+            <%= course.content %>
 		</div>
-            
+        
 		<!-- Bottom items of course -->
 		<div class="border-t mt-2">
 			<div class="flex justify-between my-1">
 				<%= render "courses/shared/feed/feed_essentials", course: @course %>
-				<%= render "courses/shared/feed/feed_essentials", course: @course %>
-				<%#= render "courses/shared/feed/feed_exercices", course: @course %>
-				<%#= render "courses/shared/feed/feed_questions", course: @course %>
+				<%= render "courses/shared/feed/feed_exercices", course: @course %>
 			</div>
 		</div>
 	</div> 

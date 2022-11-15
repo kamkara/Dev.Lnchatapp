@@ -87,6 +87,7 @@ test:
 #  <<: *default
 #  database: Lnclassapp_production
 #  username: Lnclassapp
+<<<<<<< HEAD
 #  password: <%= ENV["LNCHATAPP_DATABASE_PASSWORD"] %>
 
 
@@ -96,6 +97,17 @@ production:
   database_url: <%= ENV['LNCLASSAPP_DATABASE_NAME'] %>
 
   
+=======
+#  password: <%= ENV["LNCLASSAPP_DATABASE_PASSWORD"] %>
+
+
+#production:
+#  adapter: postgresql
+#  encoding: unicode
+#  database_url: <%= ENV['LNCHATAPP_DATABASE_NAME'] %>
+
+production:
+>>>>>>> main
   database_name: <%= ENV['LNCLASSAPP_DATABASE_NAME'] %>
   database_username: <%= ENV['LNCLASSAPP_DATABASE_USERNAME'] %>
   database_password: <%= ENV['LNCLASSAPP_DATABASE_PASSWORD'] %>

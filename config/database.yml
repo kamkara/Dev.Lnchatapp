@@ -27,7 +27,7 @@ default: &default
 
 development:
   <<: *default
-  database: Lnchatapp_development
+  database: Lnclassapp_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: Lnchatapp_test
+  database: Lnclassapp_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,20 +85,20 @@ test:
 #
 #production:
 #  <<: *default
-#  database: Lnchatapp_production
-#  username: Lnchatapp
+#  database: Lnclassapp_production
+#  username: Lnclassapp
 #  password: <%= ENV["LNCHATAPP_DATABASE_PASSWORD"] %>
 
 
 production:
   adapter: postgresql
   encoding: unicode
-  database_url: <%= ENV['LNCHATAPP_DATABASE_NAME'] %>
+  database_url: <%= ENV['LNCLASSAPP_DATABASE_NAME'] %>
 
   
-  database_name: <%= ENV['LNCHATAPP_DATABASE_NAME'] %>
-  database_username: <%= ENV['LNCHATAPP_DATABASE_USERNAME'] %>
-  database_password: <%= ENV['LNCHATAPP_DATABASE_PASSWORD'] %>
-  host: <%= ENV['LCHATAPP_DATABASE_HOST'] %>
-  port: <%= ENV['LNCHATAPP_DATABASE_PORT'] %>
+  database_name: <%= ENV['LNCLASSAPP_DATABASE_NAME'] %>
+  database_username: <%= ENV['LNCLASSAPP_DATABASE_USERNAME'] %>
+  database_password: <%= ENV['LNCLASSAPP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['LCLASSAPP_DATABASE_HOST'] %>
+  port: <%= ENV['LNCLASSAPP_DATABASE_PORT'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

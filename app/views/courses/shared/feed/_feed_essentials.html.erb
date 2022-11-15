@@ -24,7 +24,8 @@
 			</div>
 			<% if current_user_status == "team" || "teacher"  %>
 
-				<%= link_to new_course_flash_path(course), class:"ln-btn-color ln-btn-hover-color flex" do %>
+				<%#= link_to new_course_flash_path(course), class:"ln-btn-color ln-btn-hover-color flex" do %>
+				<%= link_to root_path, class:"ln-btn-color ln-btn-hover-color flex" do %>
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"
 						width="16px" height="16px" class="bg-white rounded-md px-1">
 						<g><path d="M480,224H288V32c0-17.673-14.327-32-32-32s-32,14.327-32,32v192H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h192v192   c0,17.673,14.327,32,32,32s32-14.327,32-32V288h192c17.673,0,32-14.327,32-32S497.673,224,480,224z"/></g>
@@ -33,16 +34,16 @@
 				<% end %>
 			<% end %>
 		</div>
-		<% course.flashes.each do |flash| %>	
+		<%# course.flashes.each do |flash| %>	
 			<div tabindex="0" class="collapse border rounded-md my-4"> 
 				<div class="collapse-title text-xl font-medium">
-					<%= flash.title %> - <small class="ln-btn-color ln-btn-hover-color text-sm py-1 ">Voir plus</small>
+					<%#= flash.title %> - <small class="ln-btn-color ln-btn-hover-color text-sm py-1 ">Voir plus</small>
 				</div>
 	    	    <div class="collapse-content"> 
-			        <%= flash.content %>
+			        <%#= flash.content %>
 		        </div>
 			</div>
-		<% end %>
+		<%# end %>
 		<div class="modal-action pb-4">
 			<label for="essential-modal" class="btn btn-sm btn-circle absolute ">✕</label>
 		</div>

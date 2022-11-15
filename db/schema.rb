@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_171017) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_10_220001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -53,16 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_171017) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.boolean "correct_answer", default: false
-    t.uuid "user_id", null: false
-    t.uuid "question_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["user_id"], name: "index_answers_on_user_id"
-  end
-
   create_table "citytowns", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -82,17 +72,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_171017) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_courses_on_user_id"
-  end
-
-  create_table "exercices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
-    t.uuid "user_id", null: false
-    t.uuid "course_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_exercices_on_course_id"
-    t.index ["user_id"], name: "index_exercices_on_user_id"
   end
 
   create_table "flashes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -137,17 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_171017) do
     t.index ["user_id"], name: "index_materials_on_user_id"
   end
 
-  create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "title", null: false
-    t.uuid "user_id", null: false
-    t.uuid "course_id", null: false
-    t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_questions_on_course_id"
-    t.index ["user_id"], name: "index_questions_on_user_id"
-  end
-
   create_table "schools", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -185,36 +153,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_171017) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "choice", limit: 2, default: 0
-    t.uuid "question_id", null: false
-    t.uuid "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_votes_on_question_id"
-    t.index ["user_id"], name: "index_votes_on_user_id"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "answers", "questions"
-  add_foreign_key "answers", "users"
   add_foreign_key "citytowns", "users"
   add_foreign_key "courses", "users"
-  add_foreign_key "exercices", "courses"
-  add_foreign_key "exercices", "users"
   add_foreign_key "flashes", "courses"
   add_foreign_key "flashes", "users"
   add_foreign_key "levels", "users"
   add_foreign_key "materials", "users"
-  add_foreign_key "questions", "courses"
-  add_foreign_key "questions", "users"
   add_foreign_key "schools", "users"
-  add_foreign_key "votes", "questions"
-  add_foreign_key "votes", "users"
 end

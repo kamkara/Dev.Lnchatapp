@@ -1,8 +1,0 @@
-<%= form_with model: [question, answer], class:"bg-white  text-black p-2", id: "answer_#{answer.new_record? ? "new" : answer.id}" do |f| %>
-
-    <div class="my-2">
-    <%= f.rich_text_area :content, placeholder:"Votre reponse ..."  %>
-    </div>
-
-    <%= f.submit "Repondre", class:"p-2 bg-blue-600 text-white font-bold rounded-md mt-3" %>
-<% end %>

@@ -1,8 +1,17 @@
 # Each route describes how an incoming URL is going to be processed by Platform.sh.
-"https://www.{default}/":
+#"https://www.{default}/":
+#    type: upstream
+#    upstream: "lnclassapp:http"
+
+#"https://{default}/":
+#    type: redirect
+#    to: "https://www.{default}/"
+
+    
+"https://{default}/":
     type: upstream
     upstream: "lnclassapp:http"
 
-"https://{default}/":
+"https://www.{default}/":
     type: redirect
-    to: "https://www.{default}/"
+    to: "https://{default}/"

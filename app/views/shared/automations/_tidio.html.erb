@@ -1,2 +1,4 @@
-<!-- Tidio chatbot-->
-<script src="//code.tidio.co/hbubqtmol3hugdtf6uibeyyodkrzb4as.js" async="async"></script>
+<% if Rails.env == 'production' %>
+    <!-- Tidio chatbot-->
+    <script src="//code.tidio.co/hbubqtmol3hugdtf6uibeyyodkrzb4as.js" async="async"></script>
+<% end %>

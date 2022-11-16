@@ -32,19 +32,14 @@
             <p  class="flex ml-2 text-md font-semibold">
                 <%= link_to course_path(course), class:""  do %>
                     <%#= course.flashes.count %>
-                    <span class="bg-black ml-2">Essentiels</span>
-                <% end %>
-            </p>
-            <p  class="flex ml-2 text-md font-semibold">
-                <%= link_to course_path(course), class:""  do %>
-                    <%#= course.exercices.count %>
                     <span class="bg-black ml-2">Exercices</span>
                 <% end %>
             </p>
+            
             <p  class="flex ml-2 text-md font-semibold">
                 <%= link_to course_path(course), class:""  do %>
                     <%#= course.questions.count %>
-                    <span class="bg-black ml-2">Echanges</span>
+                    <span class="bg-black ml-2">Corrigés</span>
                 <% end %>
             </p>
             </div>

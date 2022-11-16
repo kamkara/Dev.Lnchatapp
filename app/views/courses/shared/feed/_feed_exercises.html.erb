@@ -20,10 +20,9 @@
 	<div class="modal-box md:w-10/12 md:max-w-4xl text-white bg-black border">
 		<div class="flex max-w-screen mx-auto">
 			<div class="mx-auto">
-			    <h1 class="flex items-center">Les Exercises</h1>
+			    <h1 class="flex items-center">Les Exercices</h1>
 			</div>
 			<% if current_user_status == "team" || "teacher"  %>
-
 				<%= link_to new_course_exercise_path(course), class:"ln-btn-color ln-btn-hover-color flex" do %>
 				
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"

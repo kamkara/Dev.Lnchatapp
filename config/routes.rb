@@ -2,14 +2,14 @@ Rails.application.routes.draw do
 
   
   #Course Items 
-  resources :courses do
-    resources :exercises, except: [:index, :show]
+  resources :courses, only:[:show] do
+    resources :exercises, only:[:new, :create, :destroy, :edit, :update]
   end
   #################   Exercice    ##################
   resources :exercises, only: [:index, :show]
   
 
-  resources :courses
+  resources :courses, except: [:show]
   resources :citytowns
   resources :schools
   resources :materials

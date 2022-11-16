@@ -96,19 +96,12 @@ test:
 #  database_url: <%= ENV['LNCHATAPP_DATABASE_NAME'] %>
 
 production:
+  adapter: postgresql
+  encoding: unicode
+  database_url: <%= ENV['LNCLASSAPP_DATABASE_NAME'] %>
   database_name: <%= ENV['LNCLASSAPP_DATABASE_NAME'] %>
   database_username: <%= ENV['LNCLASSAPP_DATABASE_USERNAME'] %>
   database_password: <%= ENV['LNCLASSAPP_DATABASE_PASSWORD'] %>
   host: <%= ENV['LCLASSAPP_DATABASE_HOST'] %>
   port: <%= ENV['LNCLASSAPP_DATABASE_PORT'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-
-
-  production:
-  LNCLASSAPP_DATABASE_URL: postgresdatabase.internal
-  LNCLASSAPP_DATABASE_NAME: main
-  LNCLASSAPP_DATABASE_USERNAME: main
-  LNCLASSAPP_DATABASE_PASSWORD: main
-  LNCLASSAPP_DATABASE_HOST: localhost
-  LNCLASSAPP_DATABASE_PORT: 5432

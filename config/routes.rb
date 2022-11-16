@@ -1,28 +1,13 @@
 Rails.application.routes.draw do
+
   
   #Course Items 
   resources :courses do
-    resources :flashes, except: [:index, :show] 
-    resources :questions, except: [:index, :show]
-    resources :exercices, except: [:index, :show]
+    resources :exercises, except: [:index, :show]
   end
   #################   Exercice    ##################
-  resources :exercices, only: [:index, :show]
+  resources :exercises, only: [:index, :show]
   
-  #Question resources and anwsers nested
-  resources :questions, only: [:index, :show] do
-    resources :answers, except: :show do
-      resource :votes, only: [:show]
-      scope module: :answers do
-        resource :actions, only: [:show]
-        resource :correct, only: [:show]
-      end
-    end
-  end
-  
-  
-  resources :flashes, only: [:index, :show]
-  resources :anwsers, only: [:index, :show]
 
   resources :courses
   resources :citytowns

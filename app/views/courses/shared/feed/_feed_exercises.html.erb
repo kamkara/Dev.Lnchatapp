@@ -12,7 +12,7 @@
 		<path fill="#70bfff" d="M66.5,66h-8c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h8c0.828,0,1.5,0.672,1.5,1.5	l0,0C68,65.328,67.328,66,66.5,66z"/>
 		<path fill="#70bfff" d="M41.5,48h-8c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h8c0.828,0,1.5,0.672,1.5,1.5	l0,0C43,47.328,42.328,48,41.5,48z"/>
 	</svg>
-	<span class="bg-black ml-2">Essentiels</span> 
+	<span class="bg-black ml-2">Exercises</span> 
 </label>
 <!-- Essential  Feature-->
 <input type="checkbox" id="essential-modal" class="modal-toggle" />
@@ -20,12 +20,12 @@
 	<div class="modal-box md:w-10/12 md:max-w-4xl text-white bg-black border">
 		<div class="flex max-w-screen mx-auto">
 			<div class="mx-auto">
-			    <h1 class="flex items-center">Essentiels de la léçons</h1>
+			    <h1 class="flex items-center">Les Exercises</h1>
 			</div>
 			<% if current_user_status == "team" || "teacher"  %>
 
-				<%#= link_to new_course_flash_path(course), class:"ln-btn-color ln-btn-hover-color flex" do %>
-				<%= link_to root_path, class:"ln-btn-color ln-btn-hover-color flex" do %>
+				<%= link_to new_course_exercise_path(course), class:"ln-btn-color ln-btn-hover-color flex" do %>
+				
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"
 						width="16px" height="16px" class="bg-white rounded-md px-1">
 						<g><path d="M480,224H288V32c0-17.673-14.327-32-32-32s-32,14.327-32,32v192H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h192v192   c0,17.673,14.327,32,32,32s32-14.327,32-32V288h192c17.673,0,32-14.327,32-32S497.673,224,480,224z"/></g>
@@ -34,16 +34,16 @@
 				<% end %>
 			<% end %>
 		</div>
-		<%# course.flashes.each do |flash| %>	
+		<% course.exercises.each do |exercise| %>	
 			<div tabindex="0" class="collapse border rounded-md my-4"> 
 				<div class="collapse-title text-xl font-medium">
-					<%#= flash.title %> - <small class="ln-btn-color ln-btn-hover-color text-sm py-1 ">Voir plus</small>
+					<%= exercise.title %> - <small class="ln-btn-color ln-btn-hover-color text-sm py-1 ">Voir plus</small>
 				</div>
 	    	    <div class="collapse-content"> 
-			        <%#= flash.content %>
+			        <%= exercise.content %>
 		        </div>
 			</div>
-		<%# end %>
+		<% end %>
 		<div class="modal-action pb-4">
 			<label for="essential-modal" class="btn btn-sm btn-circle absolute ">✕</label>
 		</div>

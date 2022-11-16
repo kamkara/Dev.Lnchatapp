@@ -1,10 +1,10 @@
 class Course < ApplicationRecord
   belongs_to :user
   has_rich_text :content
-  has_many :flashes, class_name: "Flash", foreign_key: "course_id", dependent: :destroy
-  has_many :questions, class_name: "Question", foreign_key: "course_id", dependent: :destroy
-  has_many :anwsers, class_name: "Anwser", foreign_key: "course_id", dependent: :destroy
-  has_many :exercices, class_name: "Exercice", foreign_key: "course_id", dependent: :destroy
+  has_many :exercises, class_name: "Exercise", foreign_key: "course_id", dependent: :destroy
+  #has_many :flashes, class_name: "Flash", foreign_key: "course_id", dependent: :destroy
+  #has_many :questions, class_name: "Question", foreign_key: "course_id", dependent: :destroy
+  #has_many :anwsers, class_name: "Anwser", foreign_key: "course_id", dependent: :destroy
                             
 
 ################## FIX N+1  ###############

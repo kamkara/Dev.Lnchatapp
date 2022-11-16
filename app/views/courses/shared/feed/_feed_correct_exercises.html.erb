@@ -26,16 +26,15 @@
                 <% end %>
             <% end %>
         </div>
-        <%# course.exercices.each do |exercice| %>
+        <% course.exercises.each do |exercise| %>
             <div tabindex="0" class="collapse border rounded-md my-4">
                 <div class="collapse-title text-xl font-medium">
-                    <%#= exercice.name %>
+                    <%= exercise.title %>
                     -
                     <small class="ln-btn-color ln-btn-hover-color text-sm py-1 ">Voir plus</small>
                 </div>
                 <div class="collapse-content">
-                    <%#= exercice.content %>
-
+                    <%= exercise.correct_content %>
                 </div>
                     <div class="flex flex-row my-5 mt-5">
                         <div class="basis-1/3">
@@ -50,7 +49,7 @@
                         </div>
                     </div>
             </div>
-        <%# end %>
+        <% end %>
 
         
         <div class="modal-action pb-4">

@@ -32,7 +32,4 @@ STATUS = ["Lune", "Old"]
     title_changed?
   end
 
-  #Scopeto find essential for course
-  scope :essential, -> { where("feed_course.id = ?", feed_flash.course_id)}
-  # Ex:- scope :active, -> {where(:active => true)}
 end

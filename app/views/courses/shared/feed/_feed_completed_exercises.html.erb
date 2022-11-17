@@ -13,7 +13,7 @@
     <div class="modal-box md:w-10/12 md:max-w-4xl text-white bg-black border">
         <div class="flex max-w-screen mx-auto">
             <div class="mx-auto">
-                <h1 class="flex items-center">Les exercices</h1>
+                <h1 class="flex items-center">Les Corrigés des exercices</h1>
             </div>
             <% if current_user_status == "team" || "teacher"  %>
 
@@ -27,31 +27,11 @@
             <% end %>
         </div>
         <% course.exercises.each do |exercise| %>
-            <div tabindex="0" class="collapse border rounded-md my-4">
-                <div class="collapse-title text-xl font-medium">
-                    <%= exercise.title %>
-                    -
-                    <small class="ln-btn-color ln-btn-hover-color text-sm py-1 ">Voir plus</small>
-                </div>
-                <div class="collapse-content">
-                    <%= exercise.correct_content %>
-                </div>
-                    <div class="flex flex-row my-5 mt-5">
-                        <div class="basis-1/3">
-                            
-                        </div>
-                        <div class="basis-1/3">
-                            <%#= link_to 'Accéder à la corréction', exercice_path(exercice), class:"ln-btn-color ln-btn-hover-color py-2 px-4" %>
+            <%= exercise.title %>
+            <%= exercise.correct_content %>
 
-                        </div>
-                        <div class="basis-1/3">
-                            
-                        </div>
-                    </div>
-            </div>
         <% end %>
 
-        
         <div class="modal-action pb-4">
             <label for="exercice-modal" class="btn btn-sm btn-circle absolute ">✕</label>
         </div>

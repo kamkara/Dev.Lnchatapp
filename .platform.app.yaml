@@ -83,7 +83,6 @@ hooks:
         SECRET_KEY_BASE=1 bundle exec rails assets:precompile
         rsync -az --delete $RAILS_TMP/cache/webpacker/ "$PLATFORM_CACHE_DIR/webpacker/"
     # The deploy hook runs after your application has been deployed and started.
-        bundle install
     deploy: |
         bundle exec rails db:migrate
 # The configuration of the application when running.

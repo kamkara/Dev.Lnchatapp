@@ -34,7 +34,7 @@ hooks:
         gem install bundler:2.3.16
         bundle install
     deploy: |
-        bundle exec rake db:migrate
+        RACK_ENV=production bundle exec rake db:migrate
 
 mounts:
     "/log":

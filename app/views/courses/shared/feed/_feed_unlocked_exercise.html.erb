@@ -1,0 +1,28 @@
+<div class="w-full">
+    <!-- Exercises feed -->
+    <div class="flex max-w-full" data-controller="feedexercises" data-action="turbo:before-fetch-response@document->feedexercises#displayContent">
+        <%= turbo_frame_tag :feed_article  do %>
+            <% @course.exrcises.each do |exercise| %>
+                <div class="flex w-1/4 ">
+                    <div class="card m-2">
+                        <div class="card-header border bg-gray-200">
+                            <%= link_to exercise_path(exercise), class:"font-bold p-2", data: { turbo_frame: "feed_exercises", action: "turbo:click->feedexercises#displayLoading", navigation_target: "link" }  do %>
+                                <%= exercise.title %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+
+        <!-- Articles feed -->
+        <%= turbo_frame_tag :feed_exercises, class: "", "data-feedexercises-target": "content" do %>
+            Select a movie for more details...
+        <% end %>
+
+        <div class="loading-indicator hidden" data-feedexercises-target="loading">
+            <%= image_tag("medias/loading.gif") %>
+        </div>
+
+    </div>
+</div>
